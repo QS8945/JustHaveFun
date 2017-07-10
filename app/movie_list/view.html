@@ -1,0 +1,36 @@
+<h1 class="page-header">{{items.title}}</h1>
+<h1 ng-show="error">{{error}}</h1>
+<div ng-hide="error" class="list-group">
+	<a ng-repeat="item in items.subjects" href="#" class="list-group-item" ng-href="{{'#/subject/'+item.id}}">
+		<span class="badge">{{item.rating.average}}</span>
+		<div class="media">
+			<div class="media-left">
+				<img class="media-object" ng-src="{{item.images.small}}" ng-alt="{{item.images.title}}">
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">{{item.title}}</h3>
+				<p>导演:<span ng-repeat="director in item.directors">{{director.name+($last?'':'、')}}</span></p>
+				<p>类型:{{item.genres.join('、')}}</p>
+			</div>
+		</div>
+	</a>
+</div>
+<div ng-if="!mask">
+	<p>
+		总共{{items.total}}条
+	</p>
+	<nav aria-label="...">
+		<ul class="pager">
+			<li ng-class="{'disabled':currentPage<=1}"><a ng-click="updateP(currentPage - 1)">Previous</a></li>
+			<li ng-class="{'disabled':currentPage>=items.total/count}"><a ng-click="updateP(currentPage + 1)">Next</a></li>
+		</ul>
+	</nav>
+</div>
+<loading></loading>
+<!--
+<div class="mask" ng-if="mask">
+	<div class="spinner">
+		<div class="double-bounce1"></div>
+		<div class="double-bounce2"></div>
+	</div>
+</div>-->
