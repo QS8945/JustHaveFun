@@ -24,8 +24,8 @@ config(['$routeProvider', function($routeProvider) {
 	}
 }]).constant('APIconstant', {
 	pageSize: 10,
-	detailAddress: 'http://api.douban.com/v2/movie/subject/',
-	apiAddress: 'http://api.douban.com/v2/movie/'
+	detailAddress: '//api.douban.com/v2/movie/subject/',
+	apiAddress: '//api.douban.com/v2/movie/'
 });
 ;
 (function(angular){
